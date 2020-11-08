@@ -1,10 +1,16 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const app = express();
 
 // Connect Database MongoDB
 connectDB();
 
+// Init App
+const app = express();
+
+// Init Middleware
+app.use(express.json({ extended: false }));
+
+// Root
 app.get('/', (req, res) => res.json({ msg: 'Welcome !' }));
 
 // Define routes
