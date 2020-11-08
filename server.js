@@ -1,14 +1,16 @@
 const express = require('express');
+const connectDB = require('./config/db');
 const app = express();
 
-app.get('/', (req, res) => res.json({msg: 'Welcome !'}));
+// Connect Database MongoDB
+connectDB();
 
+app.get('/', (req, res) => res.json({ msg: 'Welcome !' }));
 
 // Define routes
-app.use('/api/users', require('./routes/users'))
-app.use('/api/auth', require('./routes/auth'))
-app.use('/api/contacts', require('./routes/contacts'))
-
+app.use('/api/users', require('./routes/users'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/contacts', require('./routes/contacts'));
 
 // start server
 const PORT = process.env.PORT || 5000;
