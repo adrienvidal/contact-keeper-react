@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json({ extended: false }));
 
 // Root
-app.get('/', (req, res) => res.json({ msg: 'Welcome !' }));
+app.get('/', (req, res) => res.json({ msg: 'Welcome to contactKeeper API!' }));
 
 // Define routes
 app.use('/api/users', require('./routes/users'));
