@@ -25,9 +25,37 @@ router.get('/', auth, async (req, res) => {
 // @route   POST api/contacts
 // @desc    Add new contact
 // @access  Private
-router.post('/', (req, res) => {
-  res.send('Add contact');
-});
+router.post(
+  '/',
+  [auth, [body('name', 'name is required').not().isEmpty()]],
+  async (req, res) => {
+    // if errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // if no errors
+    const { name, email, phone, type } = req.body;
+
+    try {
+      const newContact = new Contact({
+        name,
+        email,
+        phone,
+        type,
+        user: req.user.id,
+      });
+
+      const contact = await newContact.save();
+
+      res.json(contact);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
 
 // @route   PUT api/contacts/:id
 // @desc    Update contact
