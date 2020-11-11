@@ -1,16 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import ContactContext from '../../context/contact/contactContext';
 
 const Home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-    )
-}
+  const contactContext = useContext(ContactContext);
 
-Home.propTypes = {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
+};
 
-}
+Home.propTypes = {};
 
-export default Home
+export default Home;
