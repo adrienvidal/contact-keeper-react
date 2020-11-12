@@ -1,16 +1,24 @@
-/* import {
-  SEARCH_USERS,
-} from '../types'; */
+import {
+  ADD_CONTACT,
+  UPDATE_CONTACT,
+  DELETE_CONTACT,
+  SET_CURRENT,
+  CLEAR_CURRENT,
+  FILTER_CONTACTS,
+  CLEAR_FILTER,
+} from '../types';
 
-/* export default (state, action) => {
+const contactReducer = (state, action) => {
   switch (action.type) {
-    case SEARCH_USERS:
+    case ADD_CONTACT:
       return {
         ...state,
-        users: action.payload,
-        loading: false,
+        contacts: [...state.contacts, action.payload],
+        // loading: false,
       };
     default:
       return state;
   }
-}; */
+};
+
+export default contactReducer;
