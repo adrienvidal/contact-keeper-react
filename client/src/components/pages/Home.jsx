@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ContactContext from '../../context/contact/contactContext';
+import Contacts from '../contacts/Contacts';
 
 const Home = () => {
-  const contactContext = useContext(ContactContext);
-
   return (
-    <div>
-      <h1>Home</h1>
+    <div className='grid-2'>
+      <div>{/* contactForm */}</div>
+      <div>
+        <Contacts />
+      </div>
     </div>
   );
 };

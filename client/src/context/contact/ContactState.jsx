@@ -34,7 +34,7 @@ const ContactState = (props) => {
         name: 'Jessica Alba',
         email: 'jalba@gmail.com',
         phone: '0621212121',
-        type: 'lover',
+        type: 'personal',
       },
     ],
   };
