@@ -46,7 +46,7 @@ router.post(
       // check is user exist
       let user = await User.findOne({ email });
       if (!user) {
-        return res.status(400).json({ msg: 'Invalid credentials' });
+        return res.status(400).json({ msg: 'Invalid Credentials' });
       }
 
       // check if password match the one in DB
